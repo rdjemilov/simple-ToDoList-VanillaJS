@@ -36,18 +36,18 @@ header h1{
 	margin-bottom: 1rem;
 }
 
-#new-task {
+#todo-form {
 	display: flex;;
 }
 
-input, #new-task__submit {
+input, #todo-submit {
 	appearance: none;
 	border: none;
 	outline: none;
 	background: none;
 }
 
-#new-task__input {
+#todo-input {
 	flex: 1 1 0%;
 	background-color: var(--darker);
 	padding: 1rem;
@@ -57,11 +57,11 @@ input, #new-task__submit {
 	font-size: 1.25rem;
 }
 
-#new-task__input::placeholder {
+#todo-input::placeholder {
 	color: var(--grey);
 }
 
-#new-task__submit {
+#todo-submit {
 	color: var(--pink);
 	font-size: 1.25rem;
 	font-weight: 700;
@@ -72,11 +72,11 @@ input, #new-task__submit {
 	transition: 0.4s;
 }
 
-#new-task__submit:hover {
+#todo-submit:hover {
 	opacity: 0.8;
 }
 
-#new-task__submit:active {
+#todo-submit:active {
 	opacity: 0.6;
 }
 

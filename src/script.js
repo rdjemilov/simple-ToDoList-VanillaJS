@@ -1,40 +1,64 @@
 'use strict';
 
-// Selecting elements
+// Selectors
+const todoInput = document.querySelector('#todo-input');
+const todoSubmit = document.querySelector('#todo-submit');
+const todoList = document.querySelector('#tasks');
 
-const form = document.querySelector('#new-task');
-const newInput = document.querySelector('#new-task__input');
-const newTaskSubmit = document.querySelector('#new-task__submit');
-const tasksList = document.querySelector('.tasks-list');
-const tasks = document.querySelector('#tasks');
 
-eventListeners();
+// Eventlisteners
+todoSubmit.addEventListener('click', addTodo);
+todoList.addEventListener('click', deleteEdit);
 
-function eventListeners(e) { // All event listeners
-    form.addEventListener('submit', addTodo);
-}
 
+// Functions
 function addTodo(e) {
-    let newTodo = newInput.value.trim();
-    addTodoToUI(newTodo);
+    // Create task
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('task')
+    todoList.appendChild(todoDiv);
 
+    // Create content div
+    const newTodo = document.createElement('div');
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add('content');
 
+    // Create action buttons
+    const actionButtons = document.createElement('div');
+    actionButtons.classList.add('actions');
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit');
+    editButton.innerHTML = 'Edit';
+
+    const trashButton = document.createElement('button');
+    trashButton.classList.add('delete');
+    trashButton.innerHTML = 'Delete';
+
+    todoDiv.appendChild(newTodo);
+    todoDiv.appendChild(actionButtons);
+    actionButtons.appendChild(editButton);
+    actionButtons.appendChild(trashButton);
+
+    // Clear todo input value after submitting
+    todoInput.value = '';
+
+    // Prevent form from submitting
     e.preventDefault();
+
 }
 
-function addTodoToUI(newTodo) { // Get the string and add the value to UI as new task
-    const task = document.createElement('div');
-    task.className= 'task';
-    const content = document.createElement('div');
-    content.className = 'content';
-    task.appendChild(content);
-    const text = document.createElement('div');
-    text.className = 'text';
-    content.appendChild(text);
+function deleteEdit(e) {
+    const item = e.target;
 
-    text.value = newTodo;
+    // Delete todo 
+    if (item.classList[0] === 'delete') {
+        const todo = item.parentElement;
+        todo.remove();
+    }
 
-    tasks.appendChild(task);
-
-    
+    // Edit Todo
+    if (item.classList[0] === 'edit') {
+        //! I have to do this!
+    }
 }
