@@ -352,3 +352,7 @@ MigrationBackup/
 dist/
 dist/main.css.map
 dist/main.css
+**/.vscode/
+!/.vscode/
+/.vscode/*
+!/.vscode/launch.json

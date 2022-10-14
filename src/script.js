@@ -18,6 +18,7 @@ function addTodo(e) {
     todoDiv.classList.add('task')
     todoList.appendChild(todoDiv);
 
+
     // Create content div
     const newTodo = document.createElement('div');
     newTodo.innerText = todoInput.value;
@@ -28,8 +29,8 @@ function addTodo(e) {
     actionButtons.classList.add('actions');
 
     const editButton = document.createElement('button');
-    editButton.classList.add('edit');
-    editButton.innerHTML = 'Edit';
+    editButton.classList.add('done');
+    editButton.innerHTML = '✔️';
 
     const trashButton = document.createElement('button');
     trashButton.classList.add('delete');
@@ -49,16 +50,11 @@ function addTodo(e) {
 }
 
 function deleteEdit(e) {
-    const item = e.target;
-
-    // Delete todo 
-    if (item.classList[0] === 'delete') {
-        const todo = item.parentElement;
-        todo.remove();
+    if (e.target.name == 'done') {
+        doneTodo(e)
+    } else if (e.target.name == 'delete') {
+        deleteTodo(e)
     }
 
-    // Edit Todo
-    if (item.classList[0] === 'edit') {
-        //! I have to do this!
-    }
+    
 }

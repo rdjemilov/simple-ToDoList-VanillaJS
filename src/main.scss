@@ -108,6 +108,8 @@ main {
 }
 
 .task .content {
+	display: flex;
+	align-items: center;
 	flex: 1 1 0%;
 }
 
@@ -145,7 +147,7 @@ main {
 	opacity: 0.6;
 }
 
-.task .actions button.edit {
+.task .actions button.done	 {
 	background-image: linear-gradient(to right, var(--pink), var(--purple));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -156,4 +158,9 @@ main {
 	color: crimson;
 	-webkit-background-clip: text;
 	border: none;
+}
+
+.task .actions .completed {
+	text-decoration: line-through;
+	opacity: .5;
 }
